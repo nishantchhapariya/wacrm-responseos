@@ -13,10 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "wacrm",
-    template: "%s — wacrm",
+    default: "ResponseOS-Lite",
+    template: "%s — ResponseOS-Lite",
   },
-  description: "Self-hostable CRM template for WhatsApp.",
+  description: "Internal WhatsApp operator console for ResponseOS.",
   robots: {
     index: false,
     follow: false,
@@ -78,7 +78,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }}
         />
       </head>
-      <body className="min-h-full bg-background text-foreground font-sans">
+      <body className="min-h-full bg-background text-foreground font-sans" suppressHydrationWarning>
         <ThemeProvider>
           {children}
           <Toaster

@@ -25,19 +25,27 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  // Auth pages - redirect to dashboard if already logged in
+  // Auth pages - redirect to inbox if already logged in
   if (user && (
     request.nextUrl.pathname === '/login' ||
     request.nextUrl.pathname === '/signup' ||
     request.nextUrl.pathname === '/forgot-password'
   )) {
     const url = request.nextUrl.clone()
-    url.pathname = '/dashboard'
+    url.pathname = '/inbox'
+    return NextResponse.redirect(url)
+  }
+
+  const hiddenPaths = ['/dashboard', '/pipelines', '/broadcasts', '/automations', '/flows']
+
+  if (user && hiddenPaths.some(path => request.nextUrl.pathname.startsWith(path))) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/inbox'
     return NextResponse.redirect(url)
   }
 
   // Protected pages - redirect to login if not authenticated
-  const protectedPaths = ['/dashboard', '/inbox', '/contacts', '/pipelines', '/broadcasts', '/automations', '/settings']
+  const protectedPaths = ['/dashboard', '/inbox', '/contacts', '/pipelines', '/broadcasts', '/automations', '/flows', '/settings']
   if (!user && protectedPaths.some(path => request.nextUrl.pathname.startsWith(path))) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'

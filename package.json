@@ -1,17 +1,17 @@
 {
-  "name": "wacrm",
+  "name": "responseos-lite",
   "version": "0.2.0",
   "private": true,
-  "description": "Self-hostable CRM template for WhatsApp built on Next.js and Supabase — shared inbox, contacts, sales pipelines, broadcasts, and no-code automations.",
+  "description": "Internal WhatsApp operator console for ResponseOS built on Next.js and Supabase.",
   "license": "MIT",
   "author": "Arnas Donauskas",
-  "homepage": "https://github.com/ArnasDon/wacrm",
+  "homepage": "https://github.com/nishantchhapariya/wacrm-responseos",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArnasDon/wacrm.git"
+    "url": "git+https://github.com/nishantchhapariya/wacrm-responseos.git"
   },
   "bugs": {
-    "url": "https://github.com/ArnasDon/wacrm/issues"
+    "url": "https://github.com/nishantchhapariya/wacrm-responseos/issues"
   },
   "keywords": [
     "crm",
@@ -22,10 +22,12 @@
     "automation",
     "broadcast",
     "self-hosted",
-    "template"
+    "template",
+    "responseos",
+    "internal-ops"
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.19.0"
   },
   "scripts": {
     "dev": "next dev",
